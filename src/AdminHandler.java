@@ -26,11 +26,6 @@ public class AdminHandler {
             out.println(choice); // Send user choice back to server
             String serverResponse = "";
 
-
-//            if (serverResponse.equals("Logging out...")) {
-//                break;
-//            }
-
             switch (choice) {
                 case "1":
                     serverResponse = readServerResponse();
