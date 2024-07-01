@@ -58,12 +58,12 @@ public class Client {
 
     private static void handleChef(PrintWriter out, BufferedReader in, BufferedReader stdIn) throws IOException {
 
-         ChefHandler chefHandler = new ChefHandler(out, in, stdIn);
-         chefHandler.handleUserOperations();
+        ChefHandler chefHandler = new ChefHandler(out, in, stdIn);
+        chefHandler.handleUserOperations();
     }
 
     private static void handleEmployee(PrintWriter out, BufferedReader in, BufferedReader stdIn) throws IOException {
-         EmployeeHandler employeeHandler = new EmployeeHandler(out, in, stdIn);
-         employeeHandler.handleUserOperations();
+        EmployeeHandler employeeHandler = new EmployeeHandler(out, in, stdIn);
+        employeeHandler.handleUserOperations();
     }
 }

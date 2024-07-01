@@ -59,6 +59,10 @@ public class AdminHandler {
         String itemPrice = stdIn.readLine();
         out.println(itemPrice);
 
+        System.out.println("Enter Item Type(Breakfast, Lunch, Dinner)");
+        String itemType = stdIn.readLine();
+        out.println(itemType);
+
         String serverResponse = readServerResponse();
         System.out.println(serverResponse);
     }

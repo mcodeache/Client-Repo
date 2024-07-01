@@ -31,14 +31,40 @@ public class EmployeeHandler {
                     giveFeedback();
                     break;
                 case "3":
-                    viewFoodMenu();
+                    selectMenuItems();
                     break;
                 case "4":
+                    viewFoodMenu();
+                    break;
+                case "5":
                     System.out.println("Exiting...");
                     return;
                 default:
                     System.out.println("Invalid choice. Please enter a number from 1 to 4.");
                     break;
+            }
+        }
+    }
+
+    private void selectMenuItems() throws IOException {
+        String response;
+        while (!(response = in.readLine()).equals("END_OF_MESSAGE")) {
+            System.out.println(response);
+        }
+
+        selectMealItems("breakfast", 2);
+        selectMealItems("lunch", 2);
+        selectMealItems("dinner", 2);
+        String endMessage = in.readLine();
+        System.out.println("Employee Selection Completed");
+    }
+
+    private void selectMealItems(String mealType, int itemCount) throws IOException {
+        if (itemCount > 0) {
+            System.out.println("Select " + itemCount + " items for " + mealType + " by entering their IDs:");
+            for (int i = 0; i < itemCount; i++) {
+                String itemId = stdIn.readLine();
+                out.println(itemId);
             }
         }
     }
