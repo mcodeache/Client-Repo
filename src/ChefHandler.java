@@ -49,7 +49,7 @@ public class ChefHandler {
     }
 
     private void viewDiscardedItems() throws IOException {
-        String response = readServerResponse();
+        String response = ClientUtils.readServerResponse();
         System.out.println(response);
 
         System.out.println("choose an option from the following:");
@@ -83,26 +83,26 @@ public class ChefHandler {
     }
 
     private void viewRecommendations() throws IOException {
-        String response = readServerResponse();
+        String response = ClientUtils.readServerResponse();
         System.out.println(response);
     }
 
     private void viewFoodMenu() throws IOException {
-        String response = readServerResponse();
+        String response = ClientUtils.readServerResponse();
         System.out.println("Food Menu: " + response);
     }
 
-    private String readServerResponse() throws IOException {
-        StringBuilder response = new StringBuilder();
-        String line;
-        while ((line = in.readLine()) != null) {
-            if (line.equals("END_OF_MESSAGE")) {
-                break;
-            }
-            response.append(line).append("\n");
-        }
-        return response.toString().trim();
-    }
+//    private String readServerResponse() throws IOException {
+//        StringBuilder response = new StringBuilder();
+//        String line;
+//        while ((line = in.readLine()) != null) {
+//            if (line.equals("END_OF_MESSAGE")) {
+//                break;
+//            }
+//            response.append(line).append("\n");
+//        }
+//        return response.toString().trim();
+//    }
 
     private void rollOutNextDayMenu() throws IOException {
 
@@ -142,7 +142,7 @@ public class ChefHandler {
     }
 
     private void viewEmployeeSelection() throws IOException {
-        String response = readServerResponse();
+        String response = ClientUtils.readServerResponse();
         System.out.println("Daily Employee Selection Report:");
         System.out.println(response);
     }
