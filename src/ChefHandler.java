@@ -15,13 +15,12 @@ public class ChefHandler {
 
     public void handleUserOperations() throws IOException {
         while (true) {
-            String menuOption = in.readLine(); // Read the menu from the server
-            System.out.println(menuOption); // Display the menu option received from the server
+            String menuOption = in.readLine();
+            System.out.println(menuOption);
 
-            // Prompt user to enter their choice
             System.out.print("Enter your choice: ");
             String choice = stdIn.readLine();
-            out.println(choice); // Send user choice back to server
+            out.println(choice);
 
             switch (choice) {
                 case "1":
@@ -40,6 +39,7 @@ public class ChefHandler {
                     viewDiscardedItems();
                     break;
                 case "6":
+                    System.out.println("Exiting");
                     return;
                 default:
                     System.out.println("Invalid choice. Please try again.");
@@ -91,18 +91,6 @@ public class ChefHandler {
         String response = ClientUtils.readServerResponse();
         System.out.println("Food Menu: " + response);
     }
-
-//    private String readServerResponse() throws IOException {
-//        StringBuilder response = new StringBuilder();
-//        String line;
-//        while ((line = in.readLine()) != null) {
-//            if (line.equals("END_OF_MESSAGE")) {
-//                break;
-//            }
-//            response.append(line).append("\n");
-//        }
-//        return response.toString().trim();
-//    }
 
     private void rollOutNextDayMenu() throws IOException {
 

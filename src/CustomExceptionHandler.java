@@ -19,13 +19,8 @@ public class CustomExceptionHandler {
     }
 
     private static void handleIOException(IOException e) {
-//        System.out.println("Can't connect to server at the moment");
-
+        System.out.println("Can't connect to server at the moment");
     }
-
-//    private static void handleUnknownHostException(UnknownHostException e) {
-//        System.out.println("Server is under maintainence, Please connect after sometime");
-//    }
 
     private static void handleGenericException(Exception e) {
         System.err.println("An unexpected error occurred: " + e.getMessage());
