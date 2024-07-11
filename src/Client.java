@@ -3,7 +3,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
-import java.net.UnknownHostException;
 
 public class Client {
     private static final int MAX_ATTEMPTS = 3;
@@ -46,8 +45,6 @@ public class Client {
                 System.out.println("Maximum authentication attempts reached. Connection closing.");
             }
 
-        } catch (UnknownHostException e) {
-            CustomExceptionHandler.handleException(e);
         } catch (IOException e) {
             CustomExceptionHandler.handleException(e);
         }
@@ -64,7 +61,7 @@ public class Client {
                 credentials[1] = stdIn.readLine();
 
                 if (!credentials[0].isEmpty() && !credentials[1].isEmpty()) {
-                    break; // Valid input, exit loop
+                    break;
                 } else {
                     System.out.println("Username and password cannot be empty. Please try again.");
                 }
@@ -76,7 +73,7 @@ public class Client {
 
         if (attempts >= MAX_ATTEMPTS) {
             System.out.println("Maximum attempts reached. Please try again later.");
-            System.exit(1); // Exit the program if max attempts reached
+            System.exit(1);
         }
 
         return credentials;
@@ -108,7 +105,7 @@ public class Client {
         try {
             AdminHandler adminHandler = new AdminHandler(out, in, stdIn);
             adminHandler.handleUserOperations();
-        } catch (IOException e) {
+        } catch (Exception e) {
             CustomExceptionHandler.handleException(e);
         }
     }
@@ -126,7 +123,7 @@ public class Client {
         try {
             EmployeeHandler employeeHandler = new EmployeeHandler(out, in, stdIn);
             employeeHandler.handleUserOperations();
-        } catch (IOException e) {
+        } catch (Exception e) {
             CustomExceptionHandler.handleException(e);
         }
     }

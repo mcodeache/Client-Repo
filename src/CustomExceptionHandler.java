@@ -1,5 +1,4 @@
 import java.io.IOException;
-import java.net.UnknownHostException;
 import java.sql.SQLException;
 
 public class CustomExceptionHandler {
