@@ -1,0 +1,29 @@
+package Exceptions;
+
+import java.io.IOException;
+import java.sql.SQLException;
+
+public class CustomExceptionHandler {
+
+    public static void handleException(Exception e) {
+        if (e instanceof SQLException) {
+            handleSQLException((SQLException) e);
+        } else if (e instanceof IOException) {
+            handleIOException((IOException) e);
+        } else {
+            handleGenericException(e);
+        }
+    }
+
+    private static void handleSQLException(SQLException e) {
+        System.out.println("Database error: ");
+    }
+
+    private static void handleIOException(IOException e) {
+        System.out.println("Can't connect to server at the moment");
+    }
+
+    private static void handleGenericException(Exception e) {
+        System.out.println("An unexpected error occurred: ");
+    }
+}
